@@ -4,3 +4,5 @@ The Real Time Streaming Protocol (RTSP) is a network control protocol designed f
 
 
 In this implementation a client and a server has been implemented. A video file has been stroed in the server side for streaming during demonstration.  
+
+Also the xml encoding has been implemented in the implementation so that the request and response message can be read in wireshark/tcpdump. 
