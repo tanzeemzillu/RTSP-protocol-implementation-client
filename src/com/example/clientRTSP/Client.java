@@ -1,5 +1,7 @@
 package com.example.clientRTSP;
 
+
+
 /* ------------------
 Client
 usage: java Client [Server hostname] [Server RTSP listening port] [Video file requested]
@@ -25,6 +27,7 @@ import java.net.DatagramSocket;
 import java.net.InetAddress;
 import java.net.Socket;
 import java.net.SocketException;
+import java.nio.charset.StandardCharsets;
 import java.util.StringTokenizer;
 
 import javax.swing.ImageIcon;
@@ -154,8 +157,8 @@ public static void main(String argv[]) throws Exception
  theClient.RTSPsocket = new Socket("127.0.0.1", 8554);
 
  //Set input and output stream filters:
- RTSPBufferedReader = new BufferedReader(new InputStreamReader(theClient.RTSPsocket.getInputStream()) );
- RTSPBufferedWriter = new BufferedWriter(new OutputStreamWriter(theClient.RTSPsocket.getOutputStream()) );
+ RTSPBufferedReader = new BufferedReader(new InputStreamReader(theClient.RTSPsocket.getInputStream(),StandardCharsets.UTF_8) );
+ RTSPBufferedWriter = new BufferedWriter(new OutputStreamWriter(theClient.RTSPsocket.getOutputStream(),StandardCharsets.UTF_8) );
 
  //init RTSP state:
  state = INIT;
@@ -230,8 +233,11 @@ class playButtonListener implements ActionListener {
      if (state == READY)
 	{
 
+ 
+
    //increase RTSP sequence number
 
+	
 
 	  RTSPSeqNb++;
 
